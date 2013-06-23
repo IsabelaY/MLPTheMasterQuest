@@ -19,7 +19,7 @@ float4 PixelShaderFunction(float2 texCoord: TEXCOORD0) : COLOR
         
     // calculate how far to distort for this pixel    
     float sinoffset = sin(wave / scalar);
-    sinoffset = clamp(sinoffset, 0, 1);
+    sinoffset = clamp(sinoffset, -1, 1);
     
     // calculate which direction to distort
     float sinsign = cos(wave / scalar);    

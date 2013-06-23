@@ -54,7 +54,7 @@ namespace MLPTheMasterQuest
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            sceneManager.AddAndLoadScene("test", new Scenes.PixelShaderTestScene(this));
+            sceneManager.AddAndLoadScene("map", new Scenes.MapOverviewScene(this,240));
             
         }
 
