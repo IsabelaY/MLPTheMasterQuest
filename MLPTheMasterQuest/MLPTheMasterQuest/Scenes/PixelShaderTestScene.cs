@@ -26,7 +26,7 @@ namespace MLPTheMasterQuest.Scenes
             ContentManager cm = game.Content;
             GraphicsDeviceManager graphics = game.graphics;
 
-            ripple = cm.Load<Effect>("Effects/ripple");
+            ripple = cm.Load<Effect>("Shaders/ripple");
             grid = cm.Load<Texture2D>("Textures/obsolete");
             waveParam = ripple.Parameters["wave"];
             distortionParam = ripple.Parameters["distortion"];
