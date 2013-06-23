@@ -12,6 +12,7 @@ namespace MLPTheMasterQuest.Engine
     /// Classe básica para as cenas, cada cena deve herdar de Scene.
     /// Scenes são carregadas pelo jogo e executadas na classe Game1.
     /// </summary>
+    [Obsolete("Não mais usado", false)]
     public abstract class Scene
     {
         protected Game1 game;

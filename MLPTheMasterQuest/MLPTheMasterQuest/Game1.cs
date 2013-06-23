@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
 using MLPTheMasterQuest.Engine;
+using MLPTheMasterQuest.GameScreens;
 
 namespace MLPTheMasterQuest
 {
@@ -21,14 +22,33 @@ namespace MLPTheMasterQuest
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
-        SceneManager sceneManager;
+        const int screenWidth = 1024;
+        const int screenHeight = 768;
+
+        public readonly Rectangle ScreenRectangle;
+
+        //GameStates:
+        GameStateManager stateManager;
+
+        public MapOverviewScreen mapScreen;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.PreferredBackBufferWidth = screenWidth;
+            graphics.PreferredBackBufferHeight = screenHeight;
+
+            ScreenRectangle = new Rectangle(0, 0, screenWidth, screenHeight);
+
             Content.RootDirectory = "Content";
 
-            sceneManager = new SceneManager(this);
+            Components.Add(new InputHandler(this));
+
+            stateManager = new GameStateManager(this);
+            Components.Add(stateManager);
+
+            mapScreen = new MapOverviewScreen(this, stateManager, 240);
+            stateManager.ChangeState(mapScreen);
         }
 
         /// <summary>
@@ -54,7 +74,6 @@ namespace MLPTheMasterQuest
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            sceneManager.AddAndLoadScene("map", new Scenes.MapOverviewScene(this,240));
             
         }
 
@@ -79,7 +98,6 @@ namespace MLPTheMasterQuest
                 this.Exit();
 
             // TODO: Add your update logic here
-            sceneManager.UpdateActive(gameTime);
 
             base.Update(gameTime);
         }
@@ -95,8 +113,6 @@ namespace MLPTheMasterQuest
             // TODO: Add your drawing code here
 
             base.Draw(gameTime);
-
-            sceneManager.DrawActive(gameTime);
         }
     }
 }

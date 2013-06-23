@@ -8,33 +8,31 @@ using Microsoft.Xna.Framework.Graphics;
 using MLPTheMasterQuest.Engine;
 using Microsoft.Xna.Framework.Input;
 
-namespace MLPTheMasterQuest.Scenes
+namespace MLPTheMasterQuest.GameScreens
 {
-    public class MapOverviewScene : Engine.Scene
+    public class MapOverviewScreen : BaseGameState
     {
         public int PixelPerHeight { get; set; }
         public Vector2 camera;
         TileMap map = new TileMap();
 
-        public MapOverviewScene(Game1 game, int pixelPerHeigth)
-            : this(game, pixelPerHeigth, new Vector2(0))
+        public MapOverviewScreen(Game1 game, GameStateManager manager, int pixelPerHeigth)
+            : this(game, manager, pixelPerHeigth, new Vector2(0))
         {
         }
 
-        public MapOverviewScene(Game1 game, int pixelPerHeigth, Vector2 cameraPos)
-            : base(game)
+        public MapOverviewScreen(Game1 game, GameStateManager manager, int pixelPerHeigth, Vector2 cameraPos)
+            : base(game, manager)
         {
             PixelPerHeight = pixelPerHeigth;
             camera = cameraPos;
         }
 
-        public override void LoadContent()
+        protected override void  LoadContent()
         {
-            Tile.TileSetTexture = game.Content.Load<Texture2D>("Textures/Map/ff_sample_tileset");
-        }
+            Tile.TileSetTexture = GameRef.Content.Load<Texture2D>("Textures/Map/ff_sample_tileset");
 
-        public override void UnloadContent()
-        {
+            base.LoadContent();
         }
 
         public override void Update(GameTime gameTime)
@@ -42,28 +40,30 @@ namespace MLPTheMasterQuest.Scenes
             KeyboardState ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Left))
             {
-                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 30) * 32);
+                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 20) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Right))
             {
-                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 30) * 32);
+                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 20) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Up))
             {
-                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 30) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 20) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Down))
             {
-                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 30) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 20) * 32);
             }
+
+            base.Update(gameTime);
         }
 
         public override void Draw(GameTime gameTime)
         {
-            SpriteBatch spriteBatch = game.spriteBatch;
+            SpriteBatch spriteBatch = GameRef.spriteBatch;
 
             spriteBatch.Begin();
 
@@ -75,9 +75,9 @@ namespace MLPTheMasterQuest.Scenes
             int offsetX = (int)squareOffset.X;
             int offsetY = (int)squareOffset.Y;
 
-            for (int y = 0; y < 30; y++)
+            for (int y = 0; y < 20; y++)
             {
-                for (int x = 0; x < 30; x++)
+                for (int x = 0; x < 20; x++)
                 {
                     spriteBatch.Draw(
                         Tile.TileSetTexture,
@@ -88,6 +88,8 @@ namespace MLPTheMasterQuest.Scenes
             }
 
             spriteBatch.End();
+
+            base.Draw(gameTime);
         }
     }
 }

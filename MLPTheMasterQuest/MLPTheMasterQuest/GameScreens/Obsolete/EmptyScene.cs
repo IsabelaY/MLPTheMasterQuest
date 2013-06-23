@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace MLPTheMasterQuest.Scenes
 {
+    [Obsolete("Não mais usado", false)]
     public class EmptyScene : MLPTheMasterQuest.Engine.Scene
     {
 

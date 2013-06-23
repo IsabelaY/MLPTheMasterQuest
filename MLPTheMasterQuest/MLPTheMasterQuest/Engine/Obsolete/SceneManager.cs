@@ -12,7 +12,10 @@ namespace MLPTheMasterQuest.Engine
 {
     /// <summary>
     /// Mantém uma lista de Scenes e atualiza de acordo com o necessário.
+    /// 
+    /// AVISO!!! DEPRECATED! FAVOR USAR GAMESTATE NO LUGAR!
     /// </summary>
+    [Obsolete("Não mais usado", false)]
     public class SceneManager
     {
         private Dictionary<String, Scene> scenes = new Dictionary<string, Scene>();

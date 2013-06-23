@@ -107,18 +107,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Engine\GameState.cs" />
+    <Compile Include="Engine\GameStateManager.cs" />
+    <Compile Include="Engine\InputHandler.cs" />
     <Compile Include="Engine\MapRow.cs" />
     <Compile Include="Engine\TileMap.cs" />
     <Compile Include="Engine\MapCell.cs" />
-    <Compile Include="Engine\Scene.cs" />
-    <Compile Include="Engine\SceneManager.cs" />
+    <Compile Include="Engine\Obsolete\Scene.cs" />
+    <Compile Include="Engine\Obsolete\SceneManager.cs" />
     <Compile Include="Engine\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Game1.cs" />
-    <Compile Include="Scenes\EmptyScene.cs" />
-    <Compile Include="Scenes\MapOverviewScene.cs" />
-    <Compile Include="Scenes\PixelShaderTestScene.cs" />
+    <Compile Include="GameScreens\BaseGameState.cs" />
+    <Compile Include="GameScreens\MapOverviewScreen.cs" />
+    <Compile Include="GameScreens\Obsolete\EmptyScene.cs" />
+    <Compile Include="GameScreens\Obsolete\MapOverviewScene.cs" />
+    <Compile Include="GameScreens\Obsolete\PixelShaderTestScene.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />

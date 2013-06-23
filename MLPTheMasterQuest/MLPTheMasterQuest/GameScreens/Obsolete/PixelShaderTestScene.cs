@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Content;
 
 namespace MLPTheMasterQuest.Scenes
 {
+    [Obsolete("Não mais usado", false)]
     public class PixelShaderTestScene : MLPTheMasterQuest.Engine.Scene
     {
         Texture2D grid;
