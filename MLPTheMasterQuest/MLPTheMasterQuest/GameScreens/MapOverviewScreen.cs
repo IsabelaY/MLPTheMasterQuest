@@ -41,22 +41,22 @@ namespace MLPTheMasterQuest.GameScreens
             KeyboardState ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Left))
             {
-                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 20) * 32);
+                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 7) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Right))
             {
-                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 20) * 32);
+                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 7) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Up))
             {
-                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 20) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 7) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Down))
             {
-                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 20) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 7) * 32);
             }
 
             base.Update(gameTime);
@@ -78,9 +78,9 @@ namespace MLPTheMasterQuest.GameScreens
             int offsetX = (int)squareOffset.X;
             int offsetY = (int)squareOffset.Y;
 
-            for (int y = 0; y < 20; y++)
+            for (int y = 0; y < 7; y++)
             {
-                for (int x = 0; x < 20; x++)
+                for (int x = 0; x < 7; x++)
                 {
                     spriteBatch.Draw(
                         Tile.TileSetTexture,
