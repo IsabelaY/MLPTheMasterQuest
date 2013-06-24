@@ -37,6 +37,7 @@ namespace MLPTheMasterQuest.GameScreens
 
         public override void Update(GameTime gameTime)
         {
+            int aspectMult = GameRef.graphics.PreferredBackBufferHeight / PixelPerHeight;
             KeyboardState ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Left))
             {
@@ -63,9 +64,11 @@ namespace MLPTheMasterQuest.GameScreens
 
         public override void Draw(GameTime gameTime)
         {
+            int aspectMult = GameRef.graphics.PreferredBackBufferHeight / PixelPerHeight;
             SpriteBatch spriteBatch = GameRef.spriteBatch;
 
-            spriteBatch.Begin();
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            GraphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
 
             Vector2 firstSquare = new Vector2(camera.X / 32, camera.Y / 32);
             int firstX = (int)firstSquare.X;
@@ -81,7 +84,7 @@ namespace MLPTheMasterQuest.GameScreens
                 {
                     spriteBatch.Draw(
                         Tile.TileSetTexture,
-                        new Rectangle((x * 32) - offsetX, (y * 32) - offsetY, 32, 32),
+                        new Rectangle(((x * 32) - offsetX) * aspectMult, ((y * 32) - offsetY) * aspectMult, 32 * aspectMult, 32 * aspectMult),
                         Tile.GetSourceRectangle(map.Rows[y + firstY].Columns[x + firstX].TileID),
                         Color.White);
                 }

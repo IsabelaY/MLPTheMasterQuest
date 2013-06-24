@@ -15,7 +15,7 @@ namespace MLPTheMasterQuest.Engine
     /// 
     /// AVISO!!! DEPRECATED! FAVOR USAR GAMESTATE NO LUGAR!
     /// </summary>
-    [Obsolete("Não mais usado", false)]
+    [Obsolete("Utilize GameStateManager", false)]
     public class SceneManager
     {
         private Dictionary<String, Scene> scenes = new Dictionary<string, Scene>();

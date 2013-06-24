@@ -10,7 +10,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace MLPTheMasterQuest.Scenes
 {
-    [Obsolete("Não mais usado", false)]
+    [Obsolete("Utilize MapOverviewScreen", false)]
     public class MapOverviewScene : Engine.Scene
     {
         public int PixelPerHeight { get; set; }
