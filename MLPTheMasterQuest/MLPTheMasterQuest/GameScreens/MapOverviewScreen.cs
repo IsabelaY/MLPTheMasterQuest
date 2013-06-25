@@ -37,26 +37,31 @@ namespace MLPTheMasterQuest.GameScreens
 
         public override void Update(GameTime gameTime)
         {
+            if (InputHandler.KeyReleased(Keys.Escape))
+            {
+                Game.Exit();
+            }
+
             int aspectMult = GameRef.graphics.PreferredBackBufferHeight / PixelPerHeight;
             KeyboardState ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Left))
             {
-                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 20) * 32);
+                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 21) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Right))
             {
-                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 20) * 32);
+                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 21) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Up))
             {
-                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 20) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 16) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Down))
             {
-                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 20) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 16) * 32);
             }
 
             base.Update(gameTime);
@@ -78,9 +83,9 @@ namespace MLPTheMasterQuest.GameScreens
             int offsetX = (int)squareOffset.X;
             int offsetY = (int)squareOffset.Y;
 
-            for (int y = 0; y < 20; y++)
+            for (int y = 0; y < 16; y++)
             {
-                for (int x = 0; x < 20; x++)
+                for (int x = 0; x < 21; x++)
                 {
                     spriteBatch.Draw(
                         Tile.TileSetTexture,

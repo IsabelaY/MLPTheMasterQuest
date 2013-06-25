@@ -31,6 +31,8 @@ namespace MLPTheMasterQuest
         GameStateManager stateManager;
 
         public MapOverviewScreen mapScreen;
+        public TitleScreen TitleScreen;
+        public StartMenuScreen StartMenuScreen;
 
         public Game1()
         {
@@ -47,8 +49,10 @@ namespace MLPTheMasterQuest
             stateManager = new GameStateManager(this);
             Components.Add(stateManager);
 
-            mapScreen = new MapOverviewScreen(this, stateManager, 720);
-            stateManager.ChangeState(mapScreen);
+            mapScreen = new MapOverviewScreen(this, stateManager, 480);
+            TitleScreen = new TitleScreen(this, stateManager);
+            StartMenuScreen = new StartMenuScreen(this, stateManager);
+            stateManager.ChangeState(TitleScreen);
         }
 
         /// <summary>
@@ -93,10 +97,6 @@ namespace MLPTheMasterQuest
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
-
             // TODO: Add your update logic here
 
             base.Update(gameTime);
