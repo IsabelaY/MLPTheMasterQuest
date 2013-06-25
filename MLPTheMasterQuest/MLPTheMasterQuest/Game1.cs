@@ -47,7 +47,7 @@ namespace MLPTheMasterQuest
             stateManager = new GameStateManager(this);
             Components.Add(stateManager);
 
-            mapScreen = new MapOverviewScreen(this, stateManager, 240);
+            mapScreen = new MapOverviewScreen(this, stateManager, 720);
             stateManager.ChangeState(mapScreen);
         }
 

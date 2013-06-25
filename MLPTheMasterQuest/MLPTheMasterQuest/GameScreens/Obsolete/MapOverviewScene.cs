@@ -15,7 +15,7 @@ namespace MLPTheMasterQuest.Scenes
     {
         public int PixelPerHeight { get; set; }
         public Vector2 camera;
-        TileMap map = new TileMap();
+        TileMap map = TileMapLoader.LoadTmx("Content/Maps/ponyville.xml");
 
         public MapOverviewScene(Game1 game, int pixelPerHeigth)
             : this(game, pixelPerHeigth, new Vector2(0))

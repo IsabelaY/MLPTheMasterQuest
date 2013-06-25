@@ -13,7 +13,11 @@ namespace MLPTheMasterQuest.Engine
 
         static public Rectangle GetSourceRectangle(int tileIndex)
         {
-            return new Rectangle(tileIndex * 32, 0, 32, 32);
+            int nX, nY;
+            nX = TileSetTexture.Width / 32;
+            nY = TileSetTexture.Height / 32;
+
+            return new Rectangle((tileIndex % nX) * 32, (tileIndex / nX) * 32, 32, 32);
         }
     }
 }

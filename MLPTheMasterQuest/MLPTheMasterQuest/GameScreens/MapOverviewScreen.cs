@@ -14,7 +14,7 @@ namespace MLPTheMasterQuest.GameScreens
     {
         public int PixelPerHeight { get; set; }
         public Vector2 camera;
-        TileMap map = new TileMap();
+        TileMap map = TileMapLoader.LoadTmx("Content/Maps/ponyville.xml");
 
         public MapOverviewScreen(Game1 game, GameStateManager manager, int pixelPerHeigth)
             : this(game, manager, pixelPerHeigth, new Vector2(0))
@@ -30,7 +30,7 @@ namespace MLPTheMasterQuest.GameScreens
 
         protected override void  LoadContent()
         {
-            Tile.TileSetTexture = GameRef.Content.Load<Texture2D>("Textures/Map/ff_sample_tileset");
+            Tile.TileSetTexture = GameRef.Content.Load<Texture2D>("Textures/Map/ponyville_tileset");
 
             base.LoadContent();
         }
@@ -41,22 +41,22 @@ namespace MLPTheMasterQuest.GameScreens
             KeyboardState ks = Keyboard.GetState();
             if (ks.IsKeyDown(Keys.Left))
             {
-                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 7) * 32);
+                camera.X = MathHelper.Clamp(camera.X - 2, 0, (map.MapWidth - 20) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Right))
             {
-                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 7) * 32);
+                camera.X = MathHelper.Clamp(camera.X + 2, 0, (map.MapWidth - 20) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Up))
             {
-                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 7) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y - 2, 0, (map.MapHeight - 20) * 32);
             }
 
             if (ks.IsKeyDown(Keys.Down))
             {
-                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 7) * 32);
+                camera.Y = MathHelper.Clamp(camera.Y + 2, 0, (map.MapHeight - 20) * 32);
             }
 
             base.Update(gameTime);
@@ -78,9 +78,9 @@ namespace MLPTheMasterQuest.GameScreens
             int offsetX = (int)squareOffset.X;
             int offsetY = (int)squareOffset.Y;
 
-            for (int y = 0; y < 7; y++)
+            for (int y = 0; y < 20; y++)
             {
-                for (int x = 0; x < 7; x++)
+                for (int x = 0; x < 20; x++)
                 {
                     spriteBatch.Draw(
                         Tile.TileSetTexture,
