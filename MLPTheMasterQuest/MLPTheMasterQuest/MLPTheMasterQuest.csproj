@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Engine\AnimationSheet.cs" />
+    <Compile Include="Engine\Components\Player.cs" />
     <Compile Include="Engine\Controls\Control.cs" />
     <Compile Include="Engine\Controls\ControlManager.cs" />
     <Compile Include="Engine\Controls\Label.cs" />
@@ -117,8 +118,11 @@
     <Compile Include="Engine\GameStateManager.cs" />
     <Compile Include="Engine\InputHandler.cs" />
     <Compile Include="Engine\Obsolete\TileMapLoader.cs" />
+    <Compile Include="Engine\TileEngine\Camera.cs" />
+    <Compile Include="Engine\TileEngine\MapLayer.cs" />
     <Compile Include="Engine\TileEngine\TileEngine.cs" />
     <Compile Include="Engine\TileEngine\Tile.cs" />
+    <Compile Include="Engine\TileEngine\TileMap.cs" />
     <Compile Include="Engine\TileEngine\Tileset.cs" />
     <Compile Include="GameScreens\GamePlayScreen.cs" />
     <Compile Include="GameScreens\StartMenuScreen.cs" />
