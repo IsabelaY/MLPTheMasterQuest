@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,10 @@ using System.Xml;
 
 namespace MLPTheMasterQuest.Engine
 {
+    [Obsolete("Não utilize esta classe", false)]
     public static class TileMapLoader
     {
-        public static TileMap LoadTmx(string xmlFile)
+        public static TileEngine LoadTmx(string xmlFile)
         {
             XmlTextReader reader = new XmlTextReader(xmlFile);
             TileMap map = new TileMap(50, 50);
@@ -42,3 +44,4 @@ namespace MLPTheMasterQuest.Engine
         }
     }
 }
+*/

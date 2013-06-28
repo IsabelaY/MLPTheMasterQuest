@@ -66,7 +66,7 @@ namespace MLPTheMasterQuest.GameScreens
 
         private void startLabel_Selected(object sender, EventArgs e)
         {
-            StateManager.PushState(GameRef.mapScreen);
+            StateManager.PushState(GameRef.StartMenuScreen);
         }
     }
 }

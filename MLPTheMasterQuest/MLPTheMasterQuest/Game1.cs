@@ -30,7 +30,7 @@ namespace MLPTheMasterQuest
         //GameStates:
         GameStateManager stateManager;
 
-        public MapOverviewScreen mapScreen;
+        public GamePlayScreen GamePlayScreen;
         public TitleScreen TitleScreen;
         public StartMenuScreen StartMenuScreen;
 
@@ -49,9 +49,11 @@ namespace MLPTheMasterQuest
             stateManager = new GameStateManager(this);
             Components.Add(stateManager);
 
-            mapScreen = new MapOverviewScreen(this, stateManager, 480);
+            // Telas do jogo:
             TitleScreen = new TitleScreen(this, stateManager);
             StartMenuScreen = new StartMenuScreen(this, stateManager);
+            GamePlayScreen = new GamePlayScreen(this, stateManager);
+
             stateManager.ChangeState(TitleScreen);
         }
 
@@ -108,7 +110,7 @@ namespace MLPTheMasterQuest
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.Black);
 
             // TODO: Add your drawing code here
 

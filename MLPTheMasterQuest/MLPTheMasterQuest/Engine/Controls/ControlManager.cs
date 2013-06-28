@@ -11,6 +11,12 @@ namespace MLPTheMasterQuest.Engine.Controls
 {
     public class ControlManager : List<Control>
     {
+        #region Eventos:
+
+        public event EventHandler FocusChanged;
+
+        #endregion
+
         int selectedControl = 0;
 
         static SpriteFont spriteFont;
@@ -91,7 +97,12 @@ namespace MLPTheMasterQuest.Engine.Controls
                     selectedControl = 0;
 
                 if (this[selectedControl].TabStop && this[selectedControl].Enabled)
+                {
+                    if (FocusChanged != null)
+                        FocusChanged(this[selectedControl], null);
+
                     break;
+                }
             } while (currentControl != selectedControl);
 
             this[selectedControl].HasFocus = true;
@@ -114,7 +125,12 @@ namespace MLPTheMasterQuest.Engine.Controls
                     selectedControl = Count - 1;
 
                 if (this[selectedControl].TabStop && this[selectedControl].Enabled)
+                {
+                    if (FocusChanged != null)
+                        FocusChanged(this[selectedControl], null);
+
                     break;
+                }
             } while (currentControl != selectedControl);
 
             this[selectedControl].HasFocus = true;
