@@ -30,7 +30,7 @@ namespace MLPTheMasterQuest.GameScreens
 
             startLabel = new LinkLabel();
 
-            startLabel.Position = new Vector2(350, 600);
+            startLabel.Position = new Vector2(150, 350);
             startLabel.Text = "Press ENTER to begin";
             startLabel.Color = Color.White;
             startLabel.TabStop = true;

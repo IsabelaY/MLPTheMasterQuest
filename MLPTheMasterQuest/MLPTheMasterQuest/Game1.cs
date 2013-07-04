@@ -22,8 +22,8 @@ namespace MLPTheMasterQuest
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
-        const int screenWidth = 1024;
-        const int screenHeight = 768;
+        const int screenWidth = 640;
+        const int screenHeight = 480;
 
         public readonly Rectangle ScreenRectangle;
 
@@ -33,6 +33,7 @@ namespace MLPTheMasterQuest
         public GamePlayScreen GamePlayScreen;
         public TitleScreen TitleScreen;
         public StartMenuScreen StartMenuScreen;
+        public CharacterSelectScreen CharacterSelectScreen;
 
         public Game1()
         {
@@ -53,6 +54,7 @@ namespace MLPTheMasterQuest
             TitleScreen = new TitleScreen(this, stateManager);
             StartMenuScreen = new StartMenuScreen(this, stateManager);
             GamePlayScreen = new GamePlayScreen(this, stateManager);
+            CharacterSelectScreen = new CharacterSelectScreen(this, stateManager);
 
             stateManager.ChangeState(TitleScreen);
         }

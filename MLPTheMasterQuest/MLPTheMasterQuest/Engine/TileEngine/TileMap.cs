@@ -55,22 +55,30 @@ namespace MLPTheMasterQuest.Engine.TileEngine
         public void Draw(SpriteBatch spriteBatch, Camera camera)
         {
             Rectangle destination = new Rectangle(0, 0, TileEngine.TileWidth, TileEngine.TileHeight);
+            int startX, endX, startY, endY;
             Tile tile;
+
 
             foreach (MapLayer layer in mapLayers)
             {
-                for (int y = 0; y < layer.Height; y++)
-                {
-                    destination.Y = y * TileEngine.TileHeight - (int)camera.Position.Y;
+                startX = (int)Math.Floor(camera.Position.X / (TileEngine.TileWidth * camera.Zoom));
+                endX = (int)MathHelper.Clamp(((camera.Position.X + camera.ViewportRectangle.Width) / (TileEngine.TileWidth * camera.Zoom)) + 1, 0, layer.Width);
 
-                    for (int x = 0; x < layer.Width; x++)
+                startY = (int)Math.Floor(camera.Position.Y / (TileEngine.TileHeight * camera.Zoom));
+                endY = (int)MathHelper.Clamp(((camera.Position.Y + camera.ViewportRectangle.Height) / (TileEngine.TileHeight * camera.Zoom)) + 1, 0, layer.Height);
+
+                for (int y = startY; y < endY; y++)
+                {
+                    destination.Y = y * TileEngine.TileHeight;
+
+                    for (int x = startX; x < endX; x++)
                     {
                         tile = layer.GetTile(x, y);
 
                         if (tile.TileIndex == -1 || tile.Tileset == -1)
                             continue;
 
-                        destination.X = x * TileEngine.TileWidth - (int)camera.Position.X;
+                        destination.X = x * TileEngine.TileWidth;
 
                         spriteBatch.Draw(
                             tilesets[tile.Tileset].Texture,

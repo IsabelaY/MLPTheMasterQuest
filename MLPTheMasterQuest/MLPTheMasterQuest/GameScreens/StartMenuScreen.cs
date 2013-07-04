@@ -49,8 +49,8 @@ namespace MLPTheMasterQuest.GameScreens
                 new Rectangle(
                     0,
                     0,
-                    arrowTexture.Width*5,
-                    arrowTexture.Height*5));
+                    arrowTexture.Width,
+                    arrowTexture.Height));
             ControlManager.Add(arrowImage);
 
             startGame = new LinkLabel();
@@ -77,7 +77,7 @@ namespace MLPTheMasterQuest.GameScreens
             ControlManager.NextControl();
 
             ControlManager.FocusChanged += new EventHandler(ControlManager_FocusChanged);
-            Vector2 position = new Vector2(350, 500);
+            Vector2 position = new Vector2(200, 300);
 
             foreach (Control c in ControlManager)
             {
@@ -105,12 +105,12 @@ namespace MLPTheMasterQuest.GameScreens
         {
             if (sender == startGame)
             {
-                StateManager.PushState(GameRef.GamePlayScreen);
+                StateManager.PushState(GameRef.CharacterSelectScreen);
             }
 
             if (sender == loadGame)
             {
-                StateManager.PushState(GameRef.GamePlayScreen);
+                //StateManager.PushState(GameRef.GamePlayScreen);
             }
 
             if (sender == exitGame)
