@@ -31,7 +31,7 @@ namespace MLPTheMasterQuest.GameScreens
         {
             ContentManager Content = Game.Content;
 
-            SpriteFont menuFont = Content.Load<SpriteFont>(@"Fonts\ControlFont");
+            SpriteFont menuFont = Content.Load<SpriteFont>(@"Fonts\press_start");
             ControlManager = new ControlManager(menuFont);
 
             base.LoadContent();
