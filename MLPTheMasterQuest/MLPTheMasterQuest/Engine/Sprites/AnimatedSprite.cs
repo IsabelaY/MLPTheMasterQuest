@@ -18,7 +18,7 @@ namespace MLPTheMasterQuest.Engine.Sprites
         Texture2D texture;
         Vector2 position;
         Vector2 velocity;
-        float speed = 2.0f;
+        float speed = 1.0f;
 
         public AnimationKey CurrentAnimation
         {

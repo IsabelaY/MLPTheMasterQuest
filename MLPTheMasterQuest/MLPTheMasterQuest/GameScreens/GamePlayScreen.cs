@@ -16,7 +16,7 @@ namespace MLPTheMasterQuest.GameScreens
     public class GamePlayScreen : BaseGameState
     {
 
-        TileEngine engine = new TileEngine(32, 32);
+        TileEngine engine = new TileEngine(16, 16);
         Tileset tileset;
         TileMap map;
         Player player;
@@ -35,31 +35,31 @@ namespace MLPTheMasterQuest.GameScreens
 
         protected override void LoadContent()
         {
-            Texture2D spriteSheet = Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\" + GameRef.CharacterSelectScreen.SelectedCharacter.Replace(" ", String.Empty).ToLower() + "_40x40_8");
+            Texture2D spriteSheet = Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\" + GameRef.CharacterSelectScreen.SelectedCharacter.Replace(" ", String.Empty).ToLower() + "_20x20_8");
             Dictionary<AnimationKey, Animation> animations = new Dictionary<AnimationKey, Animation>();
 
-            Animation animation = new Animation(2, 40, 40, 0, 0);
+            Animation animation = new Animation(2, 20, 20, 0, 0);
             animations.Add(AnimationKey.Down, animation);
 
-            animation = new Animation(2, 40, 40, 0, 40);
+            animation = new Animation(2, 20, 20, 0, 20);
             animations.Add(AnimationKey.Left, animation);
 
-            animation = new Animation(2, 40, 40, 0, 80);
+            animation = new Animation(2, 20, 20, 0, 40);
             animations.Add(AnimationKey.Right, animation);
 
-            animation = new Animation(2, 40, 40, 0, 120);
+            animation = new Animation(2, 20, 20, 0, 60);
             animations.Add(AnimationKey.Up, animation);
 
             sprite = new AnimatedSprite(spriteSheet, animations);
 
             Texture2D tilesetTexture = Game.Content.Load<Texture2D>(@"Textures\Tilesets\ponyville_tileset");
-            tileset = new Tileset(tilesetTexture, 11, 8, 32, 32);
+            tileset = new Tileset(tilesetTexture, 11, 8, 16, 16);
 
             tilesetTexture = Game.Content.Load<Texture2D>(@"Textures\Tilesets\example_tileset1");
-            Tileset tileset1 = new Tileset(tilesetTexture, 8, 8, 32, 32);
+            Tileset tileset1 = new Tileset(tilesetTexture, 8, 8, 16, 16);
 
             tilesetTexture = Game.Content.Load<Texture2D>(@"Textures\Tilesets\example_tileset2");
-            Tileset tileset2 = new Tileset(tilesetTexture, 8, 8, 32, 32);
+            Tileset tileset2 = new Tileset(tilesetTexture, 8, 8, 16, 16);
 
             List<Tileset> tilesets = new List<Tileset>();
             tilesets.Add(tileset);
@@ -131,55 +131,55 @@ namespace MLPTheMasterQuest.GameScreens
             if (InputHandler.KeyReleased(Keys.D1))
             {
                 Dictionary<AnimationKey, Animation> animations = new Dictionary<AnimationKey, Animation>();
-                Animation animation = new Animation(2, 40, 40, 0, 0);
+                Animation animation = new Animation(2, 20, 20, 0, 0);
                 animations.Add(AnimationKey.Down, animation);
 
-                animation = new Animation(2, 40, 40, 0, 40);
+                animation = new Animation(2, 20, 20, 0, 20);
                 animations.Add(AnimationKey.Left, animation);
 
-                animation = new Animation(2, 40, 40, 0, 80);
+                animation = new Animation(2, 20, 20, 0, 40);
                 animations.Add(AnimationKey.Right, animation);
 
-                animation = new Animation(2, 40, 40, 0, 120);
+                animation = new Animation(2, 20, 20, 0, 60);
                 animations.Add(AnimationKey.Up, animation);
 
-                sprite = new AnimatedSprite(Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\rarity_40x40_8"), animations);
+                sprite = new AnimatedSprite(Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\rarity_20x20_8"), animations);
                 player.Camera.LockToSprite(sprite);
             }
             if (InputHandler.KeyReleased(Keys.D2))
             {
                 Dictionary<AnimationKey, Animation> animations = new Dictionary<AnimationKey, Animation>();
-                Animation animation = new Animation(2, 40, 40, 0, 0);
+                Animation animation = new Animation(2, 20, 20, 0, 0);
                 animations.Add(AnimationKey.Down, animation);
 
-                animation = new Animation(2, 40, 40, 0, 40);
+                animation = new Animation(2, 20, 20, 0, 20);
                 animations.Add(AnimationKey.Left, animation);
 
-                animation = new Animation(2, 40, 40, 0, 80);
+                animation = new Animation(2, 20, 20, 0, 40);
                 animations.Add(AnimationKey.Right, animation);
 
-                animation = new Animation(2, 40, 40, 0, 120);
+                animation = new Animation(2, 20, 20, 0, 60);
                 animations.Add(AnimationKey.Up, animation);
 
-                sprite = new AnimatedSprite(Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\cloudkicker_40x40_8"), animations);
+                sprite = new AnimatedSprite(Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\cloudkicker_20x20_8"), animations);
                 player.Camera.LockToSprite(sprite);
             }
             if (InputHandler.KeyReleased(Keys.D3))
             {
                 Dictionary<AnimationKey, Animation> animations = new Dictionary<AnimationKey, Animation>();
-                Animation animation = new Animation(2, 40, 40, 0, 0);
+                Animation animation = new Animation(2, 20, 20, 0, 0);
                 animations.Add(AnimationKey.Down, animation);
 
-                animation = new Animation(2, 40, 40, 0, 40);
+                animation = new Animation(2, 20, 20, 0, 20);
                 animations.Add(AnimationKey.Left, animation);
 
-                animation = new Animation(2, 40, 40, 0, 80);
+                animation = new Animation(2, 20, 20, 0, 40);
                 animations.Add(AnimationKey.Right, animation);
 
-                animation = new Animation(2, 40, 40, 0, 120);
+                animation = new Animation(2, 20, 20, 0, 60);
                 animations.Add(AnimationKey.Up, animation);
 
-                sprite = new AnimatedSprite(Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\carrottop_40x40_8"), animations);
+                sprite = new AnimatedSprite(Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\carrottop_20x20_8"), animations);
                 player.Camera.LockToSprite(sprite);
             }
 
@@ -260,7 +260,8 @@ namespace MLPTheMasterQuest.GameScreens
                 null,
                 null,
                 null,
-                player.Camera.Transformation);
+                player.Camera.Transformation * GameRef.SpriteScale);
+
 
             map.Draw(GameRef.spriteBatch, player.Camera);
             sprite.Draw(gameTime, GameRef.spriteBatch, player.Camera);

@@ -30,7 +30,7 @@ namespace MLPTheMasterQuest.GameScreens
 
             startLabel = new LinkLabel();
 
-            startLabel.Position = new Vector2(150, 350);
+            startLabel.Position = new Vector2(65, 170);
             startLabel.Text = "Press ENTER to begin";
             startLabel.Color = Color.White;
             startLabel.TabStop = true;
@@ -49,7 +49,7 @@ namespace MLPTheMasterQuest.GameScreens
 
         public override void Draw(GameTime gameTime)
         {
-            GameRef.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            GameRef.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone, null, GameRef.SpriteScale);
             GraphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
 
             base.Draw(gameTime);

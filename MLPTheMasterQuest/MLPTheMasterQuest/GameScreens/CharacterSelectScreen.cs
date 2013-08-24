@@ -56,7 +56,7 @@ namespace MLPTheMasterQuest.GameScreens
                 null,
                 null,
                 null,
-                Matrix.Identity);
+                GameRef.SpriteScale);
 
             base.Draw(gameTime);
 
@@ -79,28 +79,28 @@ namespace MLPTheMasterQuest.GameScreens
             Label label1 = new Label();
             label1.Text = "Select your character";
             label1.Size = label1.SpriteFont.MeasureString(label1.Text);
-            label1.Position = new Vector2((GameRef.Window.ClientBounds.Width - label1.Size.X) / 2, 270);
+            label1.Position = new Vector2((GameRef.ScreenRectangle.Width - label1.Size.X) / 2, 135);
 
             ControlManager.Add(label1);
 
             characterSelector = new LeftRightSelector(leftTexture, rightTexture, stopTexture);
-            characterSelector.SetItems(characterItems, 250);
-            characterSelector.Position = new Vector2(label1.Position.X, 320);
+            characterSelector.SetItems(characterItems, 125);
+            characterSelector.Position = new Vector2(label1.Position.X, 160);
             characterSelector.SelectionChanged += new EventHandler(selection_Changed);
 
             ControlManager.Add(characterSelector);
 
             LinkLabel linkLabel1 = new LinkLabel();
             linkLabel1.Text = "Start.";
-            linkLabel1.Position = new Vector2(label1.Position.X, 370);
+            linkLabel1.Position = new Vector2(label1.Position.X, 185);
             linkLabel1.Selected += new EventHandler(linkLabel1_Selected);
 
             ControlManager.Add(linkLabel1);
 
             characterImage = new PictureBox(
                 characterImages[0],
-                new Rectangle(50, 300, 80, 80),
-                new Rectangle(0, 0, 40, 40));
+                new Rectangle(10, 145, 40, 40),
+                new Rectangle(0, 0, 20, 20));
             ControlManager.Add(characterImage);
 
             ControlManager.NextControl();
@@ -112,7 +112,7 @@ namespace MLPTheMasterQuest.GameScreens
 
             for (int i = 0; i < characterItems.Length; i++)
             {
-                characterImages[i] = Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\"+characterItems[i].Replace(" ", String.Empty).ToLower()+"_40x40_8");
+                characterImages[i] = Game.Content.Load<Texture2D>(@"Textures\Characters\Overworld\"+characterItems[i].Replace(" ", String.Empty).ToLower()+"_20x20_8");
             }
         }
 

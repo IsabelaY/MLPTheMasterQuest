@@ -127,27 +127,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\Characters\Overworld\rarity_40x40_8.png">
-      <Name>rarity_40x40_8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Textures\Characters\Overworld\cloudkicker_40x40_8.png">
-      <Name>cloudkicker_40x40_8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Textures\Characters\Overworld\carrottop_40x40_8.png">
-      <Name>carrottop_40x40_8</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Textures\Characters\Portraits\applejack_portrait.png">
       <Name>applejack_portrait</Name>
       <Importer>TextureImporter</Importer>
@@ -176,6 +155,23 @@
   <ItemGroup>
     <Compile Include="Textures\Characters\Battle\rarity_battle.png">
       <Name>rarity_battle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Characters\Overworld\carrottop_20x20_8.png">
+      <Name>carrottop_20x20_8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Characters\Overworld\cloudkicker_20x20_8.png">
+      <Name>cloudkicker_20x20_8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\Characters\Overworld\rarity_20x20_8.png">
+      <Name>rarity_20x20_8</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

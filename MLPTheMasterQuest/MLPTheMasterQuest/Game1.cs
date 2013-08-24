@@ -22,10 +22,14 @@ namespace MLPTheMasterQuest
         public GraphicsDeviceManager graphics;
         public SpriteBatch spriteBatch;
 
-        const int screenWidth = 640;
-        const int screenHeight = 480;
+        const int screenWidth = 256;
+        const int screenHeight = 224;
+
+        const int screenRenderWidth = 512;
+        const int screenRenderHeight = 448;
 
         public readonly Rectangle ScreenRectangle;
+        public Matrix SpriteScale;
 
         //GameStates:
         GameStateManager stateManager;
@@ -38,8 +42,8 @@ namespace MLPTheMasterQuest
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            graphics.PreferredBackBufferWidth = screenWidth;
-            graphics.PreferredBackBufferHeight = screenHeight;
+            graphics.PreferredBackBufferWidth = screenRenderWidth;
+            graphics.PreferredBackBufferHeight = screenRenderHeight;
 
             ScreenRectangle = new Rectangle(0, 0, screenWidth, screenHeight);
 
@@ -82,7 +86,8 @@ namespace MLPTheMasterQuest
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
-            
+            float screenscale = (float)graphics.GraphicsDevice.Viewport.Width / ((float)screenWidth);
+            SpriteScale = Matrix.CreateScale(screenscale, screenscale, 1f);
         }
 
         /// <summary>

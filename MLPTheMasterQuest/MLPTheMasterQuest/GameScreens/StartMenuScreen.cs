@@ -77,7 +77,7 @@ namespace MLPTheMasterQuest.GameScreens
             ControlManager.NextControl();
 
             ControlManager.FocusChanged += new EventHandler(ControlManager_FocusChanged);
-            Vector2 position = new Vector2(200, 300);
+            Vector2 position = new Vector2(65, 150);
 
             foreach (Control c in ControlManager)
             {
@@ -128,7 +128,7 @@ namespace MLPTheMasterQuest.GameScreens
 
         public override void Draw(GameTime gameTime)
         {
-            GameRef.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend);
+            GameRef.spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, DepthStencilState.None, RasterizerState.CullNone, null, GameRef.SpriteScale);
             GraphicsDevice.SamplerStates[0] = SamplerState.PointWrap;
 
             base.Draw(gameTime);
