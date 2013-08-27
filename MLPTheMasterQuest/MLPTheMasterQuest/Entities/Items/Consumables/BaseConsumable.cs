@@ -9,5 +9,9 @@ namespace MLPTheMasterQuest.Entities.Items.Consumables
 {
     public abstract class BaseConsumable : BaseItem
     {
+        public BaseConsumable(string name, int price)
+            : base(name, ItemType.Consumable, price)
+        {
+        }
     }
 }
