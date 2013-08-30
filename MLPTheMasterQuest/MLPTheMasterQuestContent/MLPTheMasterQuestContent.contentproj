@@ -70,13 +70,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Textures\Tilesets\ponyville_tileset.png">
-      <Name>ponyville_tileset</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Textures\Tilesets\example_tileset1.png">
       <Name>example_tileset1</Name>
       <Importer>TextureImporter</Importer>
@@ -98,7 +91,7 @@
       <Name>ponyville</Name>
       <Importer>XmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -172,6 +165,13 @@
     </Compile>
     <Compile Include="Textures\Characters\Overworld\rarity_20x20_8.png">
       <Name>rarity_20x20_8</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Textures\Tilesets\ponyville_tileset.png">
+      <Name>ponyville_tileset</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

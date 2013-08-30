@@ -132,7 +132,7 @@
     <Compile Include="Engine\GameState.cs" />
     <Compile Include="Engine\GameStateManager.cs" />
     <Compile Include="Engine\InputHandler.cs" />
-    <Compile Include="Engine\Obsolete\TileMapLoader.cs" />
+    <Compile Include="Engine\TileEngine\TileMapLoader.cs" />
     <Compile Include="Engine\Sprites\AnimatedSprite.cs" />
     <Compile Include="Engine\Sprites\Animation.cs" />
     <Compile Include="Engine\TileEngine\Camera.cs" />

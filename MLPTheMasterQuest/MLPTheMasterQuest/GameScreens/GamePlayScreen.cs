@@ -53,7 +53,7 @@ namespace MLPTheMasterQuest.GameScreens
             sprite = new AnimatedSprite(spriteSheet, animations);
 
             Texture2D tilesetTexture = Game.Content.Load<Texture2D>(@"Textures\Tilesets\ponyville_tileset");
-            tileset = new Tileset(tilesetTexture, 11, 8, 16, 16);
+            tileset = new Tileset(tilesetTexture, 11, 9, 16, 16);
 
             tilesetTexture = Game.Content.Load<Texture2D>(@"Textures\Tilesets\example_tileset1");
             Tileset tileset1 = new Tileset(tilesetTexture, 8, 8, 16, 16);
@@ -66,57 +66,12 @@ namespace MLPTheMasterQuest.GameScreens
             tilesets.Add(tileset1);
             tilesets.Add(tileset2);
 
-            MapLayer layer = new MapLayer(100, 100);
-
-            for (int y = 0; y < layer.Height; y++)
-            {
-                for (int x = 0; x < layer.Width; x++)
-                {
-                    Tile tile = new Tile(0, 0);
-
-                    layer.SetTile(x, y, tile);
-                }
-            }
-
-            MapLayer splatter = new MapLayer(100, 100);
-
-            Random random = new Random();
-
-            List<int> flowers = new List<int>();
-            flowers.Add(7);
-            flowers.Add(12);
-            flowers.Add(17);
-            flowers.Add(21);
-            flowers.Add(22);
-            flowers.Add(23);
-            flowers.Add(29);
-            flowers.Add(30);
-            flowers.Add(61);
-            flowers.Add(62);
-            flowers.Add(63);
-            flowers.Add(64);
-
-            for (int i = 0; i < 100; i++)
-            {
-                int x = random.Next(0, 100);
-                int y = random.Next(0, 100);
-                int index = random.Next(0, flowers.Count - 1);
-
-                Tile tile = new Tile(flowers[index], 0);
-                splatter.SetTile(x, y, tile);
-            }
-
-            splatter.SetTile(1, 0, new Tile(46, 0));
-            splatter.SetTile(2, 0, new Tile(47, 0));
-            splatter.SetTile(3, 0, new Tile(48, 0));
+            MapLayer layer = TileMapLoader.LoadTmx(@"Content\Maps\ponyville.xml");
 
             List<MapLayer> mapLayers = new List<MapLayer>();
             mapLayers.Add(layer);
-            mapLayers.Add(splatter);
 
             map = new TileMap(tilesets, mapLayers);
-
-            map.AddLayer(splatter);
 
             base.LoadContent();
         }

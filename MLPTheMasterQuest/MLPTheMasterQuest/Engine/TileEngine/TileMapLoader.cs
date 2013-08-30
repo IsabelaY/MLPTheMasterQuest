@@ -1,28 +1,30 @@
-﻿/*
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Xml;
 
+using MLPTheMasterQuest.Engine.TileEngine;
+using Microsoft.Xna.Framework.Graphics;
+
 namespace MLPTheMasterQuest.Engine
 {
-    [Obsolete("Não utilize esta classe", false)]
     public static class TileMapLoader
     {
-        public static TileEngine LoadTmx(string xmlFile)
+        public static MapLayer LoadTmx(string xmlFile)
         {
             XmlTextReader reader = new XmlTextReader(xmlFile);
-            TileMap map = new TileMap(50, 50);
+
+            MapLayer map = null;
 
             while (reader.Read())
             {
                 if (reader.Name.Equals("layer"))
                 {
-                    map = new TileMap(Int32.Parse(reader.GetAttribute("width")), Int32.Parse(reader.GetAttribute("height")));
-                    for (int i = 0; i < map.MapHeight; i++)
+                    map = new MapLayer(Int32.Parse(reader.GetAttribute("width")), Int32.Parse(reader.GetAttribute("height")));
+                    for (int i = 0; i < map.Height; i++)
                     {
-                        for (int j = 0; j < map.MapWidth; j++)
+                        for (int j = 0; j < map.Width; j++)
                         {
                             while (reader.Read())
                             {
@@ -30,7 +32,7 @@ namespace MLPTheMasterQuest.Engine
                                     break;
                             }
                             reader.MoveToContent();
-                            map.Rows[i].Columns[j].TileID = Int32.Parse(reader.GetAttribute("gid")) - 1;
+                            map.SetTile(j, i, new Tile(Int32.Parse(reader.GetAttribute("gid")) - 1, 0));
                         }
                     }
 
@@ -44,4 +46,3 @@ namespace MLPTheMasterQuest.Engine
         }
     }
 }
-*/
