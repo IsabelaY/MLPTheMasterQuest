@@ -12,6 +12,7 @@ namespace MLPTheMasterQuest.Entities.Items
         #region Field Region
 
         string name;
+        string id;
         ItemType type;
         int price;
 
@@ -31,6 +32,12 @@ namespace MLPTheMasterQuest.Entities.Items
             protected set { name = value; }
         }
 
+        public string Id
+        {
+            get { return id; }
+            protected set { id = value; }
+        }
+
         public int Price
         {
             get { return price; }
@@ -41,10 +48,11 @@ namespace MLPTheMasterQuest.Entities.Items
 
         #region Constructor Region
 
-        public BaseItem(string name, ItemType type, int price)
+        public BaseItem(string id, ItemType type, int price)
         {
+            Id = id;
             Type = type;
-            Name = name;
+            Name = "TEMP NAME";
             Price = price;
         }
 
